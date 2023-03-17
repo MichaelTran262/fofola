@@ -141,6 +141,10 @@ export const SugoSessionDirection = Object.freeze({
         text: 'synchronizace interních záznamů',
         value: 'DST_2_SRC',
     },
+});
+
+export const SugoSessionDirectionExtended = Object.freeze({
+    ...SugoSessionDirection,
     Any: ExtendedFieldValue.ANY,
 });
 
@@ -169,10 +173,10 @@ export const SugoSessionOperation = Object.freeze({
         text: 'čištění labelů',
         value: 'CLEAN_LABELS',
     },
-    // Synchronize: {
-    //     text: 'synchronizace',
-    //     value: 'SYNCHRONIZE',
-    // },
+    Synchronize: {
+        text: 'synchronizace',
+        value: 'SYNCHRONIZE',
+    },
     Any: ExtendedFieldValue.ANY,
 });
 
@@ -184,6 +188,10 @@ export const SugoSessionStatuses = Object.freeze({
     Active: {
         text: 'aktivní',
         value: 'ACTIVE',
+    },
+    Paused: {
+        text: 'pozastaveno',
+        value: 'PAUSED',
     },
     Finished: {
         text: 'ukončený',
@@ -208,13 +216,30 @@ export const SugoSessionStatuses = Object.freeze({
     Any: ExtendedFieldValue.ANY,
 });
 
+export const SugoAutomaticJobSessionType = Object.freeze({
+    Full: {
+       text: 'constant.automaticJobSessionType.full.title',
+       value: 'FULL'
+    },
+    Changes: {
+       text: 'constant.automaticJobSessionType.changes.title',
+       value: 'CHANGES'
+    },
+    Custom: {
+       text: 'constant.automaticJobSessionType.custom.title',
+       value: 'CUSTOM'
+    }
+});
+
 /* just arrays of objects from structures above */
 export const dnntLabels = Object.keys(DnntLabel).map((key) => DnntLabel[key]);
 export const models = Object.keys(Model).map((key) => Model[key]);
 export const accesses = Object.keys(Access).map((key) => Access[key]);
 export const solrFields = Object.keys(SolrField).map((key) => SolrField[key]);
 
-export const sugoSessionDirections = Object.keys(SugoSessionDirection).map((key) => SugoSessionDirection[key]);
+export const sugoSessionDirections = Object.keys(SugoSessionDirection).map((key) => SugoSessionDirectionExtended[key]);
+export const sugoSessionDirectionsExtended = Object.keys(SugoSessionDirectionExtended).map((key) => SugoSessionDirectionExtended[key]);
 export const sugoSessionRequestors = Object.keys(SugoSessionRequestor).map((key) => SugoSessionRequestor[key]);
 export const sugoSessionOperations = Object.keys(SugoSessionOperation).map((key) => SugoSessionOperation[key]);
 export const sugoSessionStatuses = Object.keys(SugoSessionStatuses).map((key) => SugoSessionStatuses[key]);
+export const sugoAutomaticJobSessionTypes = Object.keys(SugoAutomaticJobSessionType).map((key) => SugoAutomaticJobSessionType[key]);
